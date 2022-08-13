@@ -1,3 +1,4 @@
+import 'package:cargotransport/animate_text.dart';
 import 'package:cargotransport/main.dart';
 import 'package:cargotransport/screens/boxes.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+
+  int delayAmount = 1000;
+
   @override
   Widget build(BuildContext context) {
 
@@ -31,20 +36,23 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             MyAppBar(),
-            const MyText(),
+            MyText(),
             const SizedBox(height: 8),
-            Container(
-              width: width,
-              color: Colors.white,
-              padding: const EdgeInsets.symmetric(horizontal: 38),
-              child: Text(
-                'best way to ship your \norder to mars.',
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w400,
-                  color: purple.withOpacity(.8),
-                ),
-              ),
+            ShowUp(
+                delay: delayAmount,
+                child: Container(
+                  width: width,
+                  color: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 38),
+                  child: Text(
+                    'best way to ship your \norder to mars.',
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w400,
+                      color: purple.withOpacity(.8),
+                    ),
+                  ),
+                )
             ),
             const SizedBox(height: 30),
 
@@ -113,7 +121,7 @@ class _HomeState extends State<Home> {
                     boxWidth: width*.26,
                     boxColor: grey,
                     upperText: 'ratings',
-                    lowerText: '\$263',
+                    lowerText: '\$260',
                     iconData: Icons.show_chart_rounded,
                     textColor: purple,
                   ),
@@ -139,48 +147,48 @@ class _HomeState extends State<Home> {
             Container(
                 width: width,
                 height: height*.25,
-              color: Colors.white,
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.symmetric(horizontal: 2).copyWith(top: 20),
-              child: ListView(
-                  physics: const BouncingScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 36),
-                      child: Boxes(
-                        boxColor: blue,
-                        textColor: purple,
-                        textKG: "20 kg",
-                        textName: 'sm box',
-                        pRight: -width*.1,
-                        pTop: -width*.05,
-                        pBottom: 20,
-                        pLeft: 15,
+                color: Colors.white,
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.symmetric(horizontal: 2).copyWith(top: 20),
+                child: ListView(
+                    physics: const BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 36),
+                        child: Boxes(
+                          boxColor: blue,
+                          textColor: purple,
+                          textKG: "20 kg",
+                          textName: 'sm box',
+                          pRight: -width*.1,
+                          pTop: -width*.05,
+                          pBottom: 20,
+                          pLeft: 15,
+                        ),
                       ),
-                    ),
-                    Boxes(
-                      boxColor: grey,
-                      textColor: purple,
-                      textKG: "48 kg",
-                      textName: 'med box',
-                      pRight: -width*.1,
-                      pTop: height*.1,
-                      pLeft: 15,
-                      pBottom: height*.2-30,
-                    ),
-                    Boxes(
-                      boxColor: grey,
-                      textColor: purple,
-                      textKG: "65 kg",
-                      textName: 'big box',
-                      pRight: -width*.1,
-                      pTop: height*.1,
-                      pLeft: 15,
-                      pBottom: height*.2-30,
-                    ),
-                  ]
-              )
+                      Boxes(
+                        boxColor: grey,
+                        textColor: purple,
+                        textKG: "48 kg",
+                        textName: 'med box',
+                        pRight: -width*.1,
+                        pTop: height*.1,
+                        pLeft: 15,
+                        pBottom: height*.2-30,
+                      ),
+                      Boxes(
+                        boxColor: grey,
+                        textColor: purple,
+                        textKG: "65 kg",
+                        textName: 'big box',
+                        pRight: -width*.1,
+                        pTop: height*.1,
+                        pLeft: 15,
+                        pBottom: height*.2-30,
+                      ),
+                    ]
+                )
             ),
 
           ],

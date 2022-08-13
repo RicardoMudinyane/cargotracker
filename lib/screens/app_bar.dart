@@ -31,12 +31,15 @@ class MyAppBar extends StatelessWidget {
             decoration: BoxDecoration(
               color: grey,
               borderRadius: BorderRadius.circular(18.0),
-              image: const DecorationImage(
-                image: AssetImage("assets/profile.png"),
-                fit: BoxFit.fitHeight
-              )
             ),
-
+            child: Center(
+              child: Image.asset(
+                "assets/profile.png",
+                fit: BoxFit.fitHeight,
+                height: appBarHeight-40,
+                width: appBarHeight-40,
+              ),
+            )
           ),
         ],
       ),
